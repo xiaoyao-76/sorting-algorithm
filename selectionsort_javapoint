@@ -1,0 +1,71 @@
+// selectionsort.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+
+void sort_ascending(int a[],int size) {
+	int i,j,min,temp;
+	for (i = 0; i < size-1; i++) {
+		min = i;
+		for (j = i+1; j < size ; j++) {
+			if (a[j] < a[min]) {
+				min = j;
+			}
+		}
+		temp = a[i];
+		a[i] = a[min];
+		a[min] = temp;
+	}
+}
+
+void sort_descending(int a[], int size) {
+	int i, j, min, temp;
+	for (i = 0; i < size - 1; i++) {
+		min = i;
+		for (j = i + 1; j < size; j++) {
+			if (a[j] > a[min]) {
+				min = j;
+			}
+		}
+		temp = a[i];
+		a[i] = a[min];
+		a[min] = temp;
+	}
+}
+
+void display(int a[], int size) {
+	int i;
+	for (i = 0; i < size; i++) {
+		cout<< a[i] << " ";
+	}
+	cout << endl;
+}
+
+int main()
+{
+	int option=0;
+	int num[5] = { 5,4,3,1,2 };
+	int size=sizeof(num)/sizeof(num[0]);
+
+	while (option != 3) {
+		cout << "1.ascending 2. descending 3.exit" << endl;
+		cin >> option;
+		switch (option) {
+		case 1:
+			sort_ascending(num, size);
+			display(num, size);
+			break;
+
+		case 2:
+			sort_descending(num, size);
+			display(num, size);
+			break;
+		case 3:
+			break;
+		}
+	}
+	return 0;
+}
+
+
