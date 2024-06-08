@@ -15,7 +15,7 @@ void display(int n[5],int size) {
 void sort_in_ascending(int n[5],int size) {
     int i,j,temp;
     for (i = 0; i < size-1; i++) {
-        swap = 0;
+        
         for (j = 0; j < size - 1; j++) {
             if (n[j + 1] < n[j]) {
                 temp = n[j];
