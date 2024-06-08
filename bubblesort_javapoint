@@ -1,0 +1,80 @@
+// bubblesort.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+
+void display(int n[5],int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        cout<< n[i] << " ";
+    }
+    cout << endl;
+}
+
+void sort_in_ascending(int n[5],int size) {
+    int i,j,temp;
+    for (i = 0; i < size-1; i++) {
+        swap = 0;
+        for (j = 0; j < size - 1; j++) {
+            if (n[j + 1] < n[j]) {
+                temp = n[j];
+                n[j] = n[j + 1];
+                n[j + 1] = temp;
+
+                
+            }
+            
+        }
+        
+        
+    }
+    
+}
+
+void sort_in_descending(int n[5], int size) {
+    int i, j, temp;
+    for (i = 0; i < size - 1; i++) {
+        for (j = 0; j < size - 1; j++) {
+            if (n[j + 1] > n[j]) {
+                temp = n[j];
+                n[j] = n[j + 1];
+                n[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int size,option;
+    int num[5] = { 5,4,3,1,2 };
+    size=sizeof(num)/sizeof(num[0]);
+
+    cout << "before sorting:" << endl;
+    display(num, size);
+    A:cout<<"choose one option: 1. Ascending order 2. Descending order 3. Exit"<<endl;
+    cin >> option;
+
+    while (option != 3) {
+        if (option == 1) {
+            cout << "After sorting (in ascending order): " << endl;
+            sort_in_ascending(num, size);
+            display(num, size);
+            goto A;
+        }
+        else if (option == 2) {
+            cout << "After sort (in descending order): " << endl;
+            sort_in_descending(num, size);
+            display(num, size);
+            goto A;
+        }
+        else {
+            cout << "key in valid value." << endl;
+            goto A;
+        }
+    }
+    
+    return 0;
+}
+
